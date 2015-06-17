@@ -1,0 +1,26 @@
+clear all;
+IMG=imread('your image file');
+r =size(IMG,1);
+c =size(IMG,2);
+%input= Tx and Ty
+
+Tx=30;
+Ty=-90;
+output=zeros(r,c,3);
+output=uint8(output);
+
+result=zeros(r,c,3);
+result=uint8(result);
+
+for x=1:r
+    for y=1:c
+        xTran= x+Tx;
+        yTran= y+Ty;
+        if xTran<r && yTran<c
+        output(xTran,yTran,:)=IMG(x,y,:);
+        end 
+    end
+end
+
+figure,subplot(1,2,1),imshow(IMG);
+subplot(1,2,2),imshow(output);
