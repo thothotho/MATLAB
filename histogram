@@ -1,0 +1,17 @@
+function [ hist1 ] = Myimhist( input)
+
+img1 = imread(input);
+check=zeros(1,256);  % prealocate
+[x y]=size(img1);
+
+for i=1:x
+    for j=1:y
+        check(img1(i,j)+1)=check(img1(i,j)+1)+1;
+    end
+end
+  
+subplot(2,2,1); imshow(img1); title('Original Image');
+subplot(2,2,2); bar(check);title('Histogram of Original Image');
+
+end
+
